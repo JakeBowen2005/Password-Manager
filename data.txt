@@ -1,0 +1,4 @@
+Test1 | jakeeb05@gmail.com | Password1
+Test2 | jakeeb05@gmail.com | Password 2
+Amazon | jakeeb05@gmail.com | Baller25$
+randomtest1 | jakeeb05@gmail.com | 6*)yN-Q3i5_
