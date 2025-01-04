@@ -28,12 +28,27 @@ def generate_password():
 
     pyperclip.copy(final_pass) 
 
+
+def find_password():
+    website = ewebsite.get().title()
+    try:
+        with open(file="data.json", mode="r") as file:
+            data = json.load(file)
+
+        password = data[website]["password"]
+        pop_up = messagebox.showinfo(title=website, message=f"Website: {website}\nEmail: {email}\nPassword: {password}")
+    except KeyError:
+        pop_up = messagebox.showinfo(title=website, message=f"No information found for '{website}'")
+    except FileNotFoundError:
+        pop_up = messagebox.showinfo(title=website, message=f"No information found for '{website}'\nNo data stored yet")
+
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def get_entry():
-    website_entry = ewebsite.get()
-    password_entry = epassword.get()
-    final_entry = website_entry + " | " + email + " | " + password_entry + "\n"
+    website_entry = ewebsite.get().title()
+    password_entry = epassword.get().title()
+    
     new_dict = {
         website_entry: { 
             "email" : email,
@@ -73,8 +88,8 @@ logo_canvas.grid(row=0,column=1)
 
 lwebsite = tkinter.Label(text="Website")
 lwebsite.grid(row=1, column=0)
-ewebsite = tkinter.Entry(width=35)
-ewebsite.grid(row=1, column=1, columnspan=2)
+ewebsite = tkinter.Entry(width=18)
+ewebsite.grid(row=1, column=1, columnspan=1)
 ewebsite.focus()
 
 lusername = tkinter.Label(text="Email/Username: ")
@@ -93,6 +108,9 @@ genpass_button.grid(row=3, column=2)
         
 add_button = tkinter.Button(text="Add", width=33, command=get_entry)
 add_button.grid(row=4, column=1, columnspan=2)
+
+search_button = tkinter.Button(text="Search", width=10, command=find_password)
+search_button.grid(row=1, column=2)
 
 
 window.mainloop()
