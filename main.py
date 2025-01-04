@@ -1,5 +1,6 @@
 import tkinter
 import random
+from tkinter import messagebox
 email = "jakeeb05@gmail.com"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -30,11 +31,20 @@ def get_entry():
     password_entry = epassword.get()
     final_entry = website_entry + " | " + email + " | " + password_entry + "\n"
 
-    with open(file="data.txt", mode="a") as file:
-        file.write(final_entry)
+    if len(website_entry) == 0 or len(password_entry) == 0:
+        pop_up = messagebox.showwarning(title="Oops", message="Please dont leave any fields empty")
+        return
 
-    ewebsite.delete(0, tkinter.END)
-    epassword.delete(0,tkinter.END)
+    y_n = messagebox.askokcancel(title=website_entry, message=f"These are the details entered: \n"
+                            f"Website: {website_entry}\n Email: {email}\nPassword: {password_entry}")
+    
+    if y_n:
+        with open(file="data.txt", mode="a") as file:
+            file.write(final_entry)
+        ewebsite.delete(0, tkinter.END)
+        epassword.delete(0,tkinter.END)
+    else:
+        ewebsite.focus()
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = tkinter.Tk()

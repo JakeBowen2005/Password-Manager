@@ -2,3 +2,8 @@ Test1 | jakeeb05@gmail.com | Password1
 Test2 | jakeeb05@gmail.com | Password 2
 Amazon | jakeeb05@gmail.com | Baller25$
 randomtest1 | jakeeb05@gmail.com | 6*)yN-Q3i5_
+Espn | jakeeb05@gmail.com | $Espn3033$
+Test1 | jakeeb05@gmail.com | Test1
+Test2 | jakeeb05@gmail.com | Test2
+Test3 | jakeeb05@gmail.com | Test3
+Test4 | jakeeb05@gmail.com | Test4
