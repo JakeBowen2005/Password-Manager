@@ -1,6 +1,7 @@
 import tkinter
 import random
 from tkinter import messagebox
+import pyperclip
 email = "jakeeb05@gmail.com"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -22,7 +23,9 @@ def generate_password():
             password.append(random.choice(nums))
 
     final_pass = "".join(password)
-    epassword.insert(0, string=final_pass)    
+    epassword.insert(0, string=final_pass)   
+
+    pyperclip.copy(final_pass) 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
